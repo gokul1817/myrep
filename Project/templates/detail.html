@@ -1,0 +1,124 @@
+<html>
+<head>
+    <style>
+        body{
+            background: url("https://img.freepik.com/free-photo/abstract-orange-background-layout-design-studio-room-web-template-business-report-with-smooth-circle-gradient-color_1258-63587.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+         .divalign{
+            text-align: center;
+        }
+        .box
+        {
+            width:auto;
+            height:fit-content;
+            padding: 20px;
+            margin: 10px;
+            border: 2px solid #333;
+            background-color: #f0f0f0;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            text-align:left;
+            font-size: 18px;
+            align-items: center;
+        }
+        .align{
+            text-align: center;
+            font-size: large;
+        }
+        .img{
+            border-color: black;
+            border-width: 2px;
+            display: inline-block;
+            border: 2px solid #333;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: aliceblue;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px; 
+            text-align: center;
+        }
+        .head {
+            font-size: large;
+            background-color: #333;
+            color: white;
+            padding: 10px; 
+            text-align: center;
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            width: 50px;
+            margin-right: 10px;
+            margin-left: 490px;
+        }
+    </style>
+    <title>
+        {% for num,mov in movie_reviews.items() if mov.name==name%}
+ 
+           {{mov.name}}
+
+        {% endfor %}
+    </title>
+</head>
+<body>
+<header class="head">
+    <img src="https://static.vecteezy.com/system/resources/previews/014/322/784/original/fresh-single-carrot-vegetable-illustration-free-png.png" height=40 class="logo"></img>
+    <h1>ROTTEN CARROTS</h1>
+</header>
+<br>
+<br>
+<div class="divalign">
+{% for num,mov in movie_reviews.items() if mov.name==name%}
+   
+    <img src='{{mov.link}}' height="450" width="330" class="img">
+    <h1>{{mov.name}}</h1>
+    <h3>IMDB : {{mov.rating}}</h3>
+    <br>
+
+{% endfor %}
+</div>
+<h3 class="header">All Reviews</h3>
+<div class="box">
+    {% for num,mov in movie_reviews.items() if mov.name==name%}
+        {% for n in mov.review %}
+           <h3>-> {{n}}</h3>
+           <br>
+
+        {% endfor %} 
+    {% endfor %}
+</div>
+<h1 class="header">Rate Movie</h1>
+<div class="align">
+<form action="/Success_for_{{name}}" method="post">
+     <select name="Rate" class="align">
+        <option value=10>10</option>
+        <option value=9>9</option>
+        <option value=8>8</option>
+        <option value=7>7</option>
+        <option value=6>6</option>
+        <option value=5>5</option>
+        <option value=4>4</option>
+        <option value=3>3</option>
+        <option value=2>2</option>
+        <option value=1>1</option>
+     </select>
+     <br>
+     <br>
+     <label for="review"></label>
+     <textarea name="review" rows="6" cols="60" value="review" placeholder="Share more about your review"></textarea>
+     <br>
+     <br>
+     <input type="submit" value="Submit" class="align">
+</form>
+</div>
+
+<footer class="header">
+
+</footer>
+</body>
+</html>

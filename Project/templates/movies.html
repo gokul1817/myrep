@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+    <title>Rotten Carrots</title>
+
+    <style>
+        body{
+            background: url("https://img.freepik.com/free-photo/abstract-orange-background-layout-design-studio-room-web-template-business-report-with-smooth-circle-gradient-color_1258-63587.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .top{
+            background:url("https://img.freepik.com/free-photo/abstract-orange-background-layout-design-studio-room-web-template-business-report-with-smooth-circle-gradient-color_1258-63587.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .img{
+            border-color: black;
+            border-width: 2px;
+            display: inline-block;
+            background-color: aliceblue;
+            border: 2px solid #333;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .head {
+            font-size: large;
+            background-color: #333;
+            color: white;
+            padding: 10px; 
+            text-align: center;
+            display: flex;
+            align-items: center;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px; 
+            text-align: center;
+        }
+        .subheading{
+            font-size:large;
+            text-align: center;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+        }
+        .text{
+            text-align: center;
+            font-size: xx-large;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: rgb(130, 240, 252);
+            color: black;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .divalign{
+            text-align: center;
+        }
+        .align{
+            text-align: center;
+            display: flex;
+        }
+        .link{
+            text-decoration: none;
+            color:black
+        }
+        .logo {
+            width: 50px; 
+            margin-right: 10px; 
+            margin-left: 490px;
+        }
+    </style>
+</head>
+<body>
+<header class="head">
+<img src="https://static.vecteezy.com/system/resources/previews/014/322/784/original/fresh-single-carrot-vegetable-illustration-free-png.png" height=40 class="logo"></img>   
+<h1>ROTTEN CARROTS</h1>
+</header>
+<div class="top">
+<br>
+<p class="subheading">Want to know more about your favourite movies ? <br> Welcome to the world of Rotten Carrots.<br> Rate your movies, read movie reviews and choose what's best for your entertainment.</p>
+<p class="subheading">
+    <a href="mailto:gokul.s@mitsogo.com" class="button" >Email Us</a>
+    <a>&nbsp;&nbsp;</a>
+    <a href="https://www.google.co.in" class="button">Help</a>
+</p>
+<div class="divalign">
+<img src="https://static.vecteezy.com/system/resources/previews/014/322/784/original/fresh-single-carrot-vegetable-illustration-free-png.png" height=400></img>
+</div>
+<br>
+<br>
+</div>
+<h1 class="header">MOVIES</h1>
+<br>
+<div class="divalign">
+<br>
+{% for num,mov in movie_reviews.items() %}
+   
+    <img src='{{mov.link}}' height="450" width="330" class="img">
+    <a href='/movies/{{mov.name}}' class="link"> <h1>{{mov.name}}</h1> </a></img>
+    <h3>IMDB : {{mov.rating}}</h3>
+    <br>
+
+{% endfor %}
+
+</div>
+<footer class="header">
+
+</footer>
+</body>
+</html>
